@@ -7,12 +7,12 @@ namespace fbv1 {
     //% block="FBV1 hash of $data"
     //% data.shadow="text"
     export function FBV1(data: string): number {
-        return fbv1Hash(pxt:: mkString(data));
+        return fbv1Hash(data);
     }
 
-    // C++ function declaration (must match signature)
+    // ---- C++ shim (THIS LINE WAS BROKEN) ----
     //% shim=fbv1::fbv1Hash
     function fbv1Hash(s: any): number {
-        return 0; // shim placeholder
+        return 0;   // placeholder – real code is in C++
     }
 }
