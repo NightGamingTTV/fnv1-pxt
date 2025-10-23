@@ -1,21 +1,20 @@
-// Define the namespace and block appearance, just like the pure TypeScript method
-// Use the 'shim=custom::FBV1_C' directive to map the TypeScript call to your C++ function.
-
 /**
  * Custom Hash Functions
  */
-//% weight=100 color=#0fbc11 icon="\uf02a"
+//% weight=100 color=#0fbc11 icon="\uf02a" // Define the block category
 namespace HashFunctions {
+
     /**
-     * Calculates a custom hash value for a given string.
+     * Calculates a custom hash value for a given string (FBV1).
      * @param data The string to hash, eg: "microbit"
      */
     //% block="hash string $data"
     //% data.shadow="text"
-    //% shim=custom::FBV1_C // <-- THIS IS THE KEY: Maps to the C++ function
-    export function FBV1(data: string): number {
-        // This is the TypeScript *signature* and is generally empty
-        // as the compiler skips it and calls the C++ shim instead.
-        return 0;
+    export function calculateHash(data: string): number {
+
+        // Call the C++ shim function that was declared in shims.d.ts
+        // Note: The generated shims.d.ts uses `custom::FBV1_C`
+        // We call it here using the namespace and function name declared in the shim.
+        return custom.FBV1_C(data);
     }
 }
