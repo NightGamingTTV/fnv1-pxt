@@ -5,12 +5,14 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "radio-broadcast": "*",
+        "microturtle": "github:microsoft/pxt-microturtle#v0.0.10",
+        "servo": "*"
     },
     "files": [
         "main.ts",
         "myhash.cpp",
-        "shims.d.ts",
         "README.md"
     ],
     "testFiles": [
