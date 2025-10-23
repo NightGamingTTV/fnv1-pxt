@@ -1,7 +1,13 @@
 //% weight=100 color=#d10000 icon="\uf02d" block="Custom Hash"
-declare namespace sec {
-    //% block="FNV-1a Hash of %data"
-    //% data.defl="text"
+namespace sec {
+    /**
+     * Calculates a custom FNV-1a hash of a string.
+     * @param data The string to hash
+     */
+    //% block="FNV-1a hash of %data"
+    //% data.defl="hello"
     //% shim=sec::FNV1aHash
-    function FNV1aHash(data: string): number;
+    export function FNV1aHash(data: string): number {
+        return 0;
+    }
 }
