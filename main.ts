@@ -1,5 +1,5 @@
 // Define a new category for your blocks
-//% weight=100 color=#d10000 icon="\uf02d" block="Wired Util"
+//% weight=100 color=#d10000 icon="\uf02d" block="WiredOS Util"
 namespace sec {
 
 
