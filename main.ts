@@ -1,20 +1,32 @@
-/**
- * Custom Hash Functions
- */
-//% weight=100 color=#0fbc11 icon="\uf02a" // Define the block category
-namespace HashFunctions {
+// Define a new category for your blocks
+//% weight=100 color=#d10000 icon="\uf02d" block="Custom Hash"
+namespace sec {
+
 
     /**
-     * Calculates a custom hash value for a given string (FBV1).
+     * Calculates a custom FNV-1a style hash of a string.
      * @param data The string to hash, eg: "microbit"
      */
-    //% block="hash string $data"
-    //% data.shadow="text"
-    export function calculateHash(data: string): number {
+    //% block="FNV-1a Hash of %data"
+    //% data.defl="text"
+    //% shim=myhash::FNV1aHash
+    export function FNV1aHash(data: string): number {
+        // Your existing logic with a few adjustments for MakeCode's environment
+        let hash2 = 2166136261;
+        let j = 0;
+        let charCode: number;
 
-        // Call the C++ shim function that was declared in shims.d.ts
-        // Note: The generated shims.d.ts uses `custom::FBV1_C`
-        // We call it here using the namespace and function name declared in the shim.
-        return custom.FBV1_C(data);
+
+        // Use 'for' loop for cleaner iteration in MakeCode
+        for (j = 0; j < data.length; j++) {
+            charCode = data.charCodeAt(j);
+            hash2 ^= charCode;
+            // The & 0xffffffff part is often unnecessary in MakeCode's TypeScript
+            // but is good practice for consistent 32-bit output.
+            hash2 = (hash2 * 16777619) >>> 0;
+        }
+
+
+        return hash2;
     }
 }
