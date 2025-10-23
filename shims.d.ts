@@ -1,11 +1,6 @@
-// Auto-generated. Do not edit.
+// Shim declarations for C++ functions
+
 declare namespace sec {
-
-    /**
-     * FNV-1a hash implementation
-     */
     //% shim=sec::FNV1aHash
-    function FNV1aHash(data: string): int32;
+    function FNV1aHash(data: string): number;
 }
-
-// Auto-generated. Do not edit. Really.
