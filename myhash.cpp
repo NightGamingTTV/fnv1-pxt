@@ -4,9 +4,6 @@ using namespace pxt;
 
 namespace sec {
 
-/**
- * FNV-1a hash implementation
- */
 //%
 int FNV1aHash(StringData *data) {
     if (data == NULL) return 0;
@@ -22,4 +19,4 @@ int FNV1aHash(StringData *data) {
     return (int)hash;
 }
 
-} // namespace sec
+}
