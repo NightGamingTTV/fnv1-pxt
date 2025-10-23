@@ -1,16 +1,25 @@
 #include "pxt.h"
+
 using namespace pxt;
 
 namespace sec {
 
-int FNV1aHash(String data) {
-    uint32_t hash = 2166136261;
-    int len = data->length();
+/**
+ * FNV-1a hash implementation
+ */
+//%
+int FNV1aHash(StringData *data) {
+    if (data == NULL) return 0;
+    
+    uint32_t hash = 2166136261U;
+    int len = data->len;
+    
     for (int i = 0; i < len; i++) {
-        hash ^= data->charCodeAt(i);
-        hash *= 16777619;
+        hash ^= (uint8_t)data->data[i];
+        hash *= 16777619U;
     }
-    return hash;
+    
+    return (int)hash;
 }
 
 } // namespace sec
