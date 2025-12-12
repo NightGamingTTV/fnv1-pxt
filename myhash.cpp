@@ -4,9 +4,9 @@ using namespace pxt;
 
 // Note: In C++, integer types are crucial. 'uint32_t' ensures a 32-bit unsigned integer.
 // The String object in MakeCode maps to the 'String' type in the C++ backend.
-
 namespace custom {
     /**
+    
      * Calculates a custom hash value for a given string (FBV1).
      * @param data The string to hash.
      */
