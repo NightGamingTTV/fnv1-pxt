@@ -38,11 +38,20 @@ namespace sec {
         buf->data[1] = (serial >> 8) & 0xFF;
         buf->data[2] = (serial >> 16) & 0xFF;
         buf->data[3] = (serial >> 24) & 0xFF;
-        
-        // Write board type (1 byte)
-        // You'll need to implement actual board detection here
-        // For micro:bit V2, you might check certain pins or features
-        buf->data[4] = 0x12; // V2 by default
+    
+        uint8_t boardType = 0x12; // default V2
+        #if MICROBIT_CODAL
+            MicroBitVersion v = uBit.power.getVersion();
+            switch (v.board) {
+                case 0x9903:
+                case 0x9904: boardType = 0x11; break; // V1
+                case 0x9905:
+                case 0x9906: boardType = 0x12; break; // V2
+                default: boardType = 0x10; break;      // VX / unknown
+            }
+        #endif
+
+        buf->data[4] = boardType;
         
         return buf;
     }
