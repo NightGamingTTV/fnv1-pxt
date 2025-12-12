@@ -7,14 +7,15 @@
         "radio": "*",
         "microphone": "*",
         "radio-broadcast": "*",
-        "microturtle": "github:microsoft/pxt-microturtle#v0.0.10",
-        "servo": "*"
+        "servo": "*",
+        "audio-recording": "*",
+        "power": "github:microbit-foundation/pxt-microbit-v2-power#v0.2.7"
     },
     "files": [
         "main.ts",
         "myhash.cpp",
-        "shims.d.ts",
-        "README.md"
+        "README.md",
+        "shims.d.ts"
     ],
     "testFiles": [
         "test.ts"

@@ -1,12 +1,18 @@
 // Auto-generated. Do not edit.
-declare namespace custom {
+declare namespace sec {
 
     /**
-     * Calculates a custom hash value for a given string (FBV1).
-     * @param data The string to hash.
+     * FNV-1a Hash implementation in C++
      */
-    //% shim=custom::FBV1_C
-    function FBV1_C(data: string): uint32;
+    //% shim=sec::_FNV1aHash
+    function _FNV1aHash(data: string): uint32;
+
+    /**
+     * System information implementation
+     * Returns a buffer with serial number and board type
+     */
+    //% shim=sec::_sysInfo
+    function _sysInfo(): Buffer;
 }
 
 // Auto-generated. Do not edit. Really.
